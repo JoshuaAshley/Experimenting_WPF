@@ -13,6 +13,7 @@
         WindowStartupLocation="CenterScreen"
         FontFamily="Segeo UI"
         FontSize="20"
+        Foreground="#242424"
         RenderOptions.BitmapScalingMode="HighQuality">
 
     <Border x:Name="ScreenBorder" Background="White"
@@ -165,6 +166,7 @@
                            Width="40"/>
 
                     <TextBlock x:Name="btnHomePageTitle" 
+                               
                                Text="Home Page"
                                Margin="10,0,20,0"
                                VerticalAlignment="Center"
@@ -214,13 +216,6 @@
 
             </Button>
 
-
-
-
-
-
-
-
             <StackPanel x:Name="pnlViewAllRecipes"
                         Grid.Column="2"
                         Grid.Row="1">
@@ -233,6 +228,7 @@
                                HorizontalAlignment="Center">
                     </TextBlock>
                 </StackPanel>
+
                 <ScrollViewer x:Name="svRecipeList"
                               Height="300"
                               Width="175"
@@ -240,30 +236,68 @@
                               Background="#F48446"
                               Foreground="Black">
                     <Border BorderThickness="1,1,1,1"
-                                BorderBrush="Brown">
-                        
-                        <!-- One recipe item -->
-                        <StackPanel Margin="5,5,5,5"
-                                Height="40"
-                                Background="White"
-                                    VerticalAlignment="Top">
-                            <Border BorderThickness="1,1,1,1"
-                                BorderBrush="Brown"
-                                Height="40"
-                                Width="146">
-                                <Image x:Name="RecipeImage" Source="C:\Users\Administrator\OneDrive - ADvTECH Ltd\Year2\Semester 3\PROG6221\POE\Possible Image Resources\CakeTemp.jpg"
-                                Stretch="Fill"
-                               Height="38"
-                               Width="38"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Center">
-                                </Image>
-
-                            </Border>
-
+                            BorderBrush="Brown">
+                        <!-- Making a data grid for all the entries -->
+                        <StackPanel>
+                            <Grid x:Name="scrollViewerGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <!-- One recipe item -->
+                                <Button Width="145"
+                                        Height="40"
+                                        Grid.Row="0"
+                                        Background="White"
+                                        BorderBrush="Brown"
+                                        VerticalAlignment="Center">
+                                    <WrapPanel>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="40" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Image x:Name="RecipeImage"
+                                                   Source="C:\Users\Administrator\OneDrive - ADvTECH Ltd\Year2\Semester 3\PROG6221\POE\Possible Image Resources\CakeTemp.jpg"
+                                                   Grid.RowSpan="2"
+                                                   Stretch="Fill"
+                                                   Height="38"
+                                                   Width="38"
+                                                   HorizontalAlignment="Left"
+                                                   VerticalAlignment="Top"></Image>
+                                            <TextBlock x:Name="ViewAllRecipesRecipeNameTitle"
+                                                       Grid.Column="1"
+                                                       Text="Recipe Name"
+                                                       FontSize="15"
+                                                       FontWeight="SemiBold"
+                                                       Height="20"
+                                                       Width="105"
+                                                       VerticalAlignment="Top"></TextBlock>
+                                            <TextBlock Text="Click for more information"
+                                                       Grid.Column="1"
+                                                       Grid.Row="2"
+                                                       FontSize="8"
+                                                       FontWeight="SemiBold"
+                                                       Foreground="Gray"
+                                                       Height="20"
+                                                       Width="105"></TextBlock>
+                                        </Grid>
+                                    </WrapPanel>
+                                </Button>
+                            </Grid>
                         </StackPanel>
                     </Border>
-
                 </ScrollViewer>
             </StackPanel>
         </Grid>
